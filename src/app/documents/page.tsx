@@ -116,15 +116,14 @@ export default function DocumentsPage() {
           <div>Inga dokument ännu.</div>
         ) : (
           docs.map(d => (
-            <div
+            <Link
               key={d.id}
-              className="rounded border border-gray-800 bg-gray-900 px-4 py-3"
+              href={`/documents/${d.id}`}
+              className="block rounded border border-gray-800 bg-gray-900 px-4 py-3 hover:bg-gray-800"
             >
-              <Link href={`/documents/${d.id}`} className="font-medium">
-                {d.title}
-              </Link>
+              <span className="font-medium">{d.title}</span>
               {d.status && <span className="opacity-70"> — {d.status}</span>}
-            </div>
+            </Link>
           ))
         )}
       </div>
